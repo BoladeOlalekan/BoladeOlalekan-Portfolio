@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bolade Olalekan - Personal Portfolio
 
-## Getting Started
+A sleek, modern, and high-performance personal portfolio built to showcase a multi-disciplinary skill set spanning Web Development, Mobile App Development, and Graphic Design. 
 
-First, run the development server:
+The website features a clean, minimal, modernist aesthetic with a dark theme, high-contrast typography, and smooth micro-interactions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Portfolio Preview](./public/images/hero-profile.png) <!-- Update with a full screenshot of the site later if needed -->
+
+## 🚀 Features
+
+- **Modern Tech Stack**: Built with [Next.js 15](https://nextjs.org/) (App Router), React, and TypeScript.
+- **Premium Design**: Dark mode by default, vibrant neon-green accents, glassmorphism effects, and custom CSS grid animations.
+- **Responsive Layout**: Fluid typography and spacing that adapts perfectly from mobile devices to ultra-wide desktop monitors.
+- **Dynamic Routing**: Dedicated dynamically generated case study pages for deep-diving into individual projects.
+- **Performance Optimized**: Uses Next.js `next/image` for automatic image optimization, local font loading with Geist, and server/client component splitting.
+
+## 🛠️ Technologies Used
+
+### Frontend
+- **Framework**: Next.js (App Router)
+- **Library**: React
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS & Vanilla CSS modules
+- **Typography**: Geist Sans & Geist Mono (Vercel)
+
+### Architecture
+- Custom Hooks for scroll animations (`useScrollAnimation`)
+- CSS Variables for strict design system token management
+- React Context for lightweight state management (e.g., ThemeProvider)
+
+## 📂 Project Structure
+
+```text
+├── public/                 # Static assets (images, icons)
+├── src/
+│   ├── app/                # Next.js App Router pages and layouts
+│   │   ├── about/          # About page
+│   │   ├── contact/        # Contact form page
+│   │   ├── portfolio/      # Project gallery and dynamic [slug] routes
+│   │   ├── services/       # Services breakdown
+│   │   ├── globals.css     # Global design tokens and utilities
+│   │   └── page.tsx        # Homepage
+│   ├── components/         # Reusable UI components
+│   │   ├── sections/       # Distinct page sections (Hero, Skills, etc.)
+│   │   ├── Header.tsx      # Global Navigation
+│   │   └── Footer.tsx      # Global Footer
+│   └── lib/                # Utilities, hooks, and static data
+│       ├── data.ts         # Portfolio content (projects, skills, services)
+│       └── hooks.ts        # Custom React hooks
+└── next.config.ts          # Next.js configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💻 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To run this project locally:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/BoladeOlalekan/BoladeOlalekan-Portfolio.git
+   cd BoladeOlalekan-Portfolio
+   ```
 
-## Learn More
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Open the browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 Design System
 
-## Deploy on Vercel
+The styling approach avoids heavy UI libraries in favor of a bespoke, scalable CSS design system managed in `globals.css`. 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Color Palette**: Deep charcoal backgrounds (`#0a0a0a`), vibrant neon green accents (`#39FF14`), and subtle tertiary borders for depth.
+- **Animations**: Custom `@keyframes` (pulse-glow, float, spin, fadeInUp) paired with `IntersectionObserver` via custom hooks.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 License
+
+This project is created for personal portfolio use by Bolade Olalekan. All rights reserved.
