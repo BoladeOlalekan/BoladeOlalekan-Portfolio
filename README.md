@@ -4,7 +4,6 @@ A sleek, modern, and high-performance personal portfolio built to showcase a mul
 
 The website features a clean, minimal, modernist aesthetic with a dark theme, high-contrast typography, and smooth micro-interactions.
 
-![Portfolio Preview](./public/images/hero-profile.png) <!-- Update with a full screenshot of the site later if needed -->
 
 ## 🚀 Features
 
@@ -50,28 +49,7 @@ The website features a clean, minimal, modernist aesthetic with a dark theme, hi
 └── next.config.ts          # Next.js configuration
 ```
 
-## 💻 Getting Started
 
-To run this project locally:
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/BoladeOlalekan/BoladeOlalekan-Portfolio.git
-   cd BoladeOlalekan-Portfolio
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Run the development server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open the browser:**
-   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## 🎨 Design System
 

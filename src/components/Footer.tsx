@@ -50,7 +50,7 @@ export default function Footer() {
                   display: "inline-block",
                 }}
               />
-              Portfolio
+              ƁƠԼЄ×͜×
             </Link>
             <p className="body-sm" style={{ maxWidth: "280px" }}>
               Building digital experiences that combine clean code, intuitive design, and measurable results.
@@ -171,10 +171,7 @@ export default function Footer() {
           }}
         >
           <p className="body-sm" style={{ color: "var(--text-muted)" }}>
-            © {currentYear} Portfolio. All rights reserved.
-          </p>
-          <p className="body-sm" style={{ color: "var(--text-muted)" }}>
-            Designed & Built with precision.
+            © {currentYear} ƁƠԼЄ×͜×. All rights reserved.
           </p>
         </div>
       </div>

@@ -80,7 +80,7 @@ export default function Header() {
                 boxShadow: "0 0 12px rgba(57, 255, 20, 0.4)",
               }}
             />
-            Portfolio
+            ƁƠԼЄ×͜×
           </Link>
 
           {/* Desktop Navigation */}

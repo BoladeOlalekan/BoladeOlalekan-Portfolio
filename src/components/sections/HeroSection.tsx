@@ -96,14 +96,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      style={{
-        position: "relative",
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-      }}
+      className="relative min-h-screen flex flex-col justify-start md:justify-center overflow-hidden pt-32 pb-20 md:pt-32 md:pb-16"
     >
       {/* Animated Canvas Background */}
       <canvas
@@ -164,48 +157,11 @@ export default function HeroSection() {
         >
           {/* Text Content */}
           <div
-            style={{
-              textAlign: "left",
-            }}
+            className="text-center md:text-left"
           >
-            {/* Label */}
-            <div
-              style={{
-                opacity: isLoaded ? 1 : 0,
-                transform: isLoaded ? "translateY(0)" : "translateY(20px)",
-                transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
-                transitionDelay: "200ms",
-                marginBottom: "1.5rem",
-              }}
-            >
-              <span
-                className="label"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  padding: "0.5rem 1rem",
-                  background: "var(--accent-subtle)",
-                  borderRadius: "100px",
-                  border: "1px solid var(--border-accent)",
-                }}
-              >
-                <span
-                  style={{
-                    width: "6px",
-                    height: "6px",
-                    borderRadius: "50%",
-                    background: "var(--accent)",
-                    animation: "pulse-glow 2s infinite",
-                  }}
-                />
-                Available for Projects
-              </span>
-            </div>
 
             {/* Title */}
-            <h1
-              className="heading-xl"
+            <div
               style={{
                 opacity: isLoaded ? 1 : 0,
                 transform: isLoaded ? "translateY(0)" : "translateY(30px)",
@@ -214,16 +170,25 @@ export default function HeroSection() {
                 marginBottom: "1.5rem",
               }}
             >
-              Web Developer.
-              <br />
-              <span style={{ color: "var(--accent)" }}>Mobile App Developer.</span>
-              <br />
-              Graphic Designer.
-            </h1>
+              <h1 className="heading-xl" style={{ marginBottom: "0.5rem", lineHeight: 1.1 }}>
+                I am Bolade Olalekan.
+              </h1>
+              <h2 
+                style={{ 
+                  color: "var(--text-secondary)", 
+                  fontSize: "clamp(1.25rem, 2vw + 0.5rem, 1.75rem)", 
+                  fontWeight: 600,
+                  lineHeight: 1.4,
+                  letterSpacing: "-0.01em"
+                }}
+              >
+                Web Developer. <span style={{ color: "var(--accent)" }}>Mobile App Developer.</span> Graphic Designer.
+              </h2>
+            </div>
 
             {/* Subtitle */}
             <p
-              className="body-lg"
+              className="body-lg mx-auto md:mx-0"
               style={{
                 maxWidth: "600px",
                 marginBottom: "2.5rem",
@@ -240,6 +205,7 @@ export default function HeroSection() {
 
             {/* CTAs */}
             <div
+              className="justify-center md:justify-start"
               style={{
                 display: "flex",
                 gap: "1rem",
