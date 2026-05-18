@@ -153,6 +153,7 @@ export default function HeroSection() {
             gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
             gap: "4rem",
             alignItems: "center",
+            marginTop: "8rem",
           }}
         >
           {/* Text Content */}
@@ -170,7 +171,10 @@ export default function HeroSection() {
                 marginBottom: "1.5rem",
               }}
             >
-              <h1 className="heading-xl" style={{ marginBottom: "0.5rem", lineHeight: 1.1 }}>
+              <h1 className="heading-xl" style={{ 
+                marginBottom: "0.5rem", 
+                lineHeight: 1.1 
+              }}>
                 I am Bolade Olalekan.
               </h1>
               <h2 
@@ -253,12 +257,11 @@ export default function HeroSection() {
               }}
             >
               <Image
-                src="/images/hero-profile.png"
+                src="/images/hero-profile.jpg"
                 alt="Profile portrait"
                 fill
                 style={{ 
                   objectFit: "cover",
-                  filter: "grayscale(100%) contrast(1.15) brightness(1.05)"
                 }}
                 priority
                 sizes="(max-width: 768px) 100vw, 450px"
