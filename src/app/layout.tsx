@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@/lib/theme-provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,6 +6,10 @@ import "./globals.css";
 
 const geistSans = { variable: "--font-geist-sans" };
 const geistMono = { variable: "--font-geist-mono" };
+
+export const viewport: Viewport = {
+  themeColor: "#fafafa",
+};
 
 export const metadata: Metadata = {
   title: {
@@ -26,6 +30,9 @@ export const metadata: Metadata = {
     "frontend developer",
     "full-stack developer",
   ],
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "Portfolio - Web Developer, Mobile App Developer & Graphic Designer",
     description:
@@ -52,35 +59,19 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        <meta name="theme-color" content="#fafafa" />
-        <link rel="icon" href="/favicon.ico" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const stored = localStorage.getItem("portfolio-theme");
-                if (stored === "dark") {
-                  document.documentElement.setAttribute("data-theme", "dark");
-                  const meta = document.querySelector('meta[name="theme-color"]');
-                  if (meta) meta.setAttribute("content", "#0a0a0a");
-                } else {
-                  document.documentElement.setAttribute("data-theme", "light");
-                  const meta = document.querySelector('meta[name="theme-color"]');
-                  if (meta) meta.setAttribute("content", "#fafafa");
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
-      </head>
       <body
+        suppressHydrationWarning
         style={{
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
         }}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var s=localStorage.getItem("portfolio-theme");if(s==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}`,
+          }}
+        />
         <ThemeProvider>
           <Header />
           <main style={{ flex: 1 }}>{children}</main>

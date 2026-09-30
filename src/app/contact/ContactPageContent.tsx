@@ -9,36 +9,44 @@ export default function ContactPageContent() {
   const [formRef, formVisible] = useScrollAnimation<HTMLDivElement>(0.1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
 
     const formData = new FormData(e.currentTarget);
     const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      subject: formData.get("subject"),
-      message: formData.get("message"),
+      access_key: "92b6772e-8dc8-4988-a6a7-ea294c775547",
+      name: (formData.get("name") as string) || "Anonymous Visitor",
+      email: (formData.get("email") as string) || "no-email@provided.com",
+      subject: `Portfolio Inquiry: ${(formData.get("subject") as string) || "General"}`,
+      message: (formData.get("message") as string) || "No message content provided.",
+      from_name: "Portfolio Contact Form",
     };
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify(payload),
       });
 
-      if (response.ok) {
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.success) {
         setIsSubmitted(true);
       } else {
-        setIsSubmitted(true);
+        console.error("Web3Forms error response:", data);
+        setSubmitError(data.message || "Failed to send message. Please try again or email directly.");
       }
     } catch (error) {
       console.error("Form delivery error:", error);
-      setIsSubmitted(true);
+      setSubmitError("Network error. Please check your connection or email directly.");
     } finally {
       setIsSubmitting(false);
     }
@@ -309,6 +317,22 @@ export default function ContactPageContent() {
                         }}
                       />
                     </div>
+
+                    {submitError && (
+                      <div
+                        style={{
+                          padding: "0.75rem 1rem",
+                          borderRadius: "var(--radius-sm)",
+                          background: "rgba(239, 68, 68, 0.1)",
+                          border: "1px solid rgba(239, 68, 68, 0.3)",
+                          color: "#ef4444",
+                          fontSize: "0.8125rem",
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        {submitError}
+                      </div>
+                    )}
 
                     {/* Submit */}
                     <button
