@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Portfolio - Web Developer, Mobile App Developer & Graphic Designer",
+    default: "Portfolio- Bolade Olalekan",
     template: "%s - Portfolio",
   },
   description:
@@ -31,10 +31,17 @@ export const metadata: Metadata = {
     "full-stack developer",
   ],
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
-    title: "Portfolio - Web Developer, Mobile App Developer & Graphic Designer",
+    title: "Portfolio- Bolade Olalekan",
     description:
       "Multidisciplinary creator specializing in web development, mobile app development, and graphic design.",
     type: "website",
