@@ -65,7 +65,7 @@ export default function PortfolioPageContent() {
             </h1>
             <p className="body-lg" style={{ maxWidth: "560px" }}>
               A curated collection of projects spanning web applications, mobile apps, and brand
-              design — each built with precision and purpose.
+              design - each built with precision and purpose.
             </p>
           </div>
         </div>
@@ -104,7 +104,7 @@ export default function PortfolioPageContent() {
                   background:
                     activeFilter === filter.value ? "var(--accent)" : "transparent",
                   color:
-                    activeFilter === filter.value ? "#0a0a0a" : "var(--text-tertiary)",
+                    activeFilter === filter.value ? "var(--bg-primary)" : "var(--text-tertiary)",
                 }}
               >
                 {filter.label}
@@ -163,6 +163,7 @@ export default function PortfolioPageContent() {
 
                   {/* Category Badge */}
                   <div
+                    className="project-category-badge"
                     style={{
                       position: "absolute",
                       top: "0.75rem",
@@ -173,7 +174,7 @@ export default function PortfolioPageContent() {
                       textTransform: "uppercase",
                       letterSpacing: "0.08em",
                       background: "rgba(10, 10, 10, 0.8)",
-                      color: "var(--accent)",
+                      color: "var(--project-badge-text)",
                       borderRadius: "100px",
                       backdropFilter: "blur(10px)",
                     }}

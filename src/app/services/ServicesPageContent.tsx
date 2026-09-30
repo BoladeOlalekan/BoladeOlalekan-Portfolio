@@ -103,7 +103,7 @@ export default function ServicesPageContent() {
               What I <span style={{ color: "var(--accent)" }}>Offer</span>
             </h1>
             <p className="body-lg" style={{ maxWidth: "560px" }}>
-              End-to-end digital product services — from concept to launch. Clear deliverables,
+              End-to-end digital product services - from concept to launch. Clear deliverables,
               transparent process, professional results.
             </p>
           </div>

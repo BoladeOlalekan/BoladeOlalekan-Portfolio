@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useScrollAnimation } from "@/lib/hooks";
+import { socialLinks } from "@/lib/data";
 
 export default function ContactSection() {
   const [sectionRef, isVisible] = useScrollAnimation<HTMLElement>(0.1);
@@ -79,12 +80,57 @@ export default function ContactSection() {
               </svg>
             </Link>
             <a
-              href="mailto:hello@portfolio.dev"
+              href="mailto:lekanseyibolade@gmail.com"
               className="btn btn-secondary"
               id="contact-cta-email"
             >
-              hello@portfolio.dev
+              lekanseyibolade@gmail.com
             </a>
+          </div>
+
+          {/* Social Links */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "1rem",
+              marginTop: "2rem",
+              flexWrap: "wrap",
+            }}
+          >
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                id={`contact-social-${link.icon}`}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  padding: "0.5rem 1rem",
+                  fontSize: "0.8125rem",
+                  fontWeight: 500,
+                  color: "var(--text-secondary)",
+                  background: "var(--bg-primary)",
+                  borderRadius: "var(--radius-sm)",
+                  border: "1px solid var(--border)",
+                  textDecoration: "none",
+                  transition: "all var(--transition-fast)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "var(--border-accent)";
+                  e.currentTarget.style.color = "var(--accent)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "var(--border)";
+                  e.currentTarget.style.color = "var(--text-secondary)";
+                }}
+              >
+                {link.name} ↗
+              </a>
+            ))}
           </div>
         </div>
       </div>

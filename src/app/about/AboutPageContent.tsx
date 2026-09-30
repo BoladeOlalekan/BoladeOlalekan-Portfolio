@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useScrollAnimation } from "@/lib/hooks";
-import { skillCategories } from "@/lib/data";
+import { skillCategories, socialLinks } from "@/lib/data";
 
 export default function AboutPageContent() {
   const [heroRef, heroVisible] = useScrollAnimation<HTMLElement>(0.1);
@@ -52,7 +53,7 @@ export default function AboutPageContent() {
             </h1>
             <p className="body-lg" style={{ maxWidth: "600px" }}>
               A multidisciplinary creator with expertise in web development, mobile applications,
-              and graphic design — focused on delivering products that are technically excellent
+              and graphic design - focused on delivering products that are technically excellent
               and visually refined.
             </p>
           </div>
@@ -91,7 +92,7 @@ export default function AboutPageContent() {
                 }}
               >
                 <Image
-                  src="/images/profile-avatar.png"
+                  src="/images/profile-portrait-new.jpg"
                   alt="Profile photo"
                   fill
                   style={{ objectFit: "cover" }}
@@ -121,7 +122,7 @@ export default function AboutPageContent() {
                     lineHeight: 1,
                   }}
                 >
-                  5+
+                  4+
                 </div>
                 <div>
                   <div style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--text-primary)" }}>
@@ -147,20 +148,14 @@ export default function AboutPageContent() {
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 <p className="body-md">
-                  I started my journey in tech by building websites from scratch — hand-coding HTML and CSS
+                  I started my journey in tech by building websites from scratch- hand-coding HTML and CSS
                   before moving into JavaScript frameworks. That foundation taught me the importance of
                   understanding every layer of the stack.
                 </p>
                 <p className="body-md">
                   Over the years, I expanded into mobile development with Flutter and React Native,
                   creating cross-platform applications that feel native on every device. My graphic design
-                  background ensures every interface I build isn&apos;t just functional — it&apos;s intentional.
-                </p>
-                <p className="body-md">
-                  Today, I work with clients ranging from startups to established businesses, helping them
-                  turn ideas into polished digital products. Whether it&apos;s a responsive web app, a mobile
-                  experience, or a complete brand identity — I bring the same level of care and precision
-                  to every project.
+                  background ensures every interface I build isn&apos;t just functional- it&apos;s intentional.
                 </p>
               </div>
 
@@ -181,24 +176,67 @@ export default function AboutPageContent() {
                 <p className="body-sm">
                   I believe the best digital products emerge when engineering precision meets creative
                   vision. Clean code should produce clean experiences. Every pixel, interaction, and
-                  transition should serve a purpose — communicating clearly, guiding naturally, and
+                  transition should serve a purpose - communicating clearly, guiding naturally, and
                   performing flawlessly.
                 </p>
               </div>
 
-              {/* CV Download */}
-              <div style={{ marginTop: "2rem" }}>
+              {/* CV Download & Actions */}
+              <div style={{ marginTop: "2rem", display: "flex", flexWrap: "wrap", gap: "1rem", alignItems: "center" }}>
                 <a
-                  href="/resume.pdf"
+                  href="/Bolade-Olalekan-CV.pdf"
                   className="btn btn-primary"
                   id="download-cv"
-                  download
+                  download="Bolade Olalekan CV.pdf"
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M2 11v2a2 2 0 002 2h8a2 2 0 002-2v-2M8 2v9M5 8l3 3 3-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   Download CV
                 </a>
+                <Link href="/contact" className="btn btn-secondary" id="about-contact-btn">
+                  Get in Touch
+                </Link>
+              </div>
+
+              {/* Social Profiles */}
+              <div style={{ marginTop: "1.5rem", display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
+                <span style={{ fontSize: "0.8125rem", color: "var(--text-muted)", fontWeight: 500, marginRight: "0.25rem" }}>
+                  Find me:
+                </span>
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id={`about-social-${link.icon}`}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.375rem",
+                      padding: "0.375rem 0.75rem",
+                      fontSize: "0.8125rem",
+                      fontWeight: 500,
+                      borderRadius: "var(--radius-sm)",
+                      border: "1px solid var(--border)",
+                      color: "var(--text-secondary)",
+                      textDecoration: "none",
+                      background: "var(--bg-secondary)",
+                      transition: "all var(--transition-fast)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "var(--border-accent)";
+                      e.currentTarget.style.color = "var(--accent)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "var(--border)";
+                      e.currentTarget.style.color = "var(--text-secondary)";
+                    }}
+                  >
+                    {link.name} ↗
+                  </a>
+                ))}
               </div>
             </div>
           </div>

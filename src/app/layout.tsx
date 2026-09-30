@@ -1,24 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/lib/theme-provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geistSans = { variable: "--font-geist-sans" };
+const geistMono = { variable: "--font-geist-mono" };
 
 export const metadata: Metadata = {
   title: {
-    default: "Portfolio — Web Developer, Mobile App Developer & Graphic Designer",
-    template: "%s — Portfolio",
+    default: "Portfolio - Web Developer, Mobile App Developer & Graphic Designer",
+    template: "%s - Portfolio",
   },
   description:
     "Multidisciplinary creator specializing in web development, mobile app development, and graphic design. Building fast, accessible, and visually compelling digital products.",
@@ -35,7 +27,7 @@ export const metadata: Metadata = {
     "full-stack developer",
   ],
   openGraph: {
-    title: "Portfolio — Web Developer, Mobile App Developer & Graphic Designer",
+    title: "Portfolio - Web Developer, Mobile App Developer & Graphic Designer",
     description:
       "Multidisciplinary creator specializing in web development, mobile app development, and graphic design.",
     type: "website",
@@ -55,14 +47,32 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="light"
       data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
       <head>
-        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="theme-color" content="#fafafa" />
         <link rel="icon" href="/favicon.ico" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const stored = localStorage.getItem("portfolio-theme");
+                if (stored === "dark") {
+                  document.documentElement.setAttribute("data-theme", "dark");
+                  const meta = document.querySelector('meta[name="theme-color"]');
+                  if (meta) meta.setAttribute("content", "#0a0a0a");
+                } else {
+                  document.documentElement.setAttribute("data-theme", "light");
+                  const meta = document.querySelector('meta[name="theme-color"]');
+                  if (meta) meta.setAttribute("content", "#fafafa");
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
       </head>
       <body
         style={{

@@ -64,7 +64,7 @@ export default function AboutSection() {
               }}
             >
               <Image
-                src="/images/profile-avatar.png"
+                src="/images/profile-portrait-new.jpg"
                 alt="Profile avatar"
                 fill
                 style={{ objectFit: "cover" }}
@@ -84,20 +84,33 @@ export default function AboutSection() {
                 design, I bring a holistic perspective to every project.
               </p>
               <p
-                className="body-md"
+                className="body-lg"
                 style={{ marginBottom: "1.5rem" }}
               >
                 My approach combines clean, maintainable code with thoughtful design decisions.
                 I believe the best digital products emerge when engineering precision meets
-                creative vision — and I work across both disciplines to deliver exactly that.
+                creative vision, and I work across both disciplines to deliver exactly that.
               </p>
 
-              <Link href="/about" className="btn btn-secondary" id="about-cta-more" style={{ marginTop: "0.5rem" }}>
-                More About Me
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
+              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "0.5rem" }}>
+                <Link href="/about" className="btn btn-secondary" id="about-cta-more">
+                  More About Me
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+                <a
+                  href="/Bolade-Olalekan-CV.pdf"
+                  className="btn btn-primary"
+                  id="about-section-download-cv"
+                  download="Bolade Olalekan CV.pdf"
+                >
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path d="M2 11v2a2 2 0 002 2h8a2 2 0 002-2v-2M8 2v9M5 8l3 3 3-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  Download CV
+                </a>
+              </div>
             </div>
           </div>
 
@@ -113,9 +126,8 @@ export default function AboutSection() {
             }}
           >
             {[
-              { value: "5+", label: "Years Experience" },
-              { value: "50+", label: "Projects Completed" },
-              { value: "30+", label: "Happy Clients" },
+              { value: "4+", label: "Years Experience" },
+              { value: "20+", label: "Projects Completed" },
               { value: "3", label: "Disciplines" },
             ].map((stat) => (
               <div

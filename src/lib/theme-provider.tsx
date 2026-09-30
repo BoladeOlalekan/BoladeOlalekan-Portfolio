@@ -12,35 +12,53 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const stored = localStorage.getItem("portfolio-theme") as Theme;
-    if (stored) {
-      setTheme(stored);
-      document.documentElement.setAttribute("data-theme", stored);
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const initial = prefersDark ? "dark" : "light";
-      setTheme(initial);
-      document.documentElement.setAttribute("data-theme", initial);
+    try {
+      const stored = localStorage.getItem("portfolio-theme") as Theme | null;
+      if (stored === "dark" || stored === "light") {
+        setTheme(stored);
+        document.documentElement.setAttribute("data-theme", stored);
+      } else {
+        setTheme("light");
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch {
+      setTheme("light");
+      document.documentElement.setAttribute("data-theme", "light");
     }
   }, []);
 
   const toggleTheme = useCallback(() => {
+    const root = document.documentElement;
+    root.classList.add("theme-transitioning");
+
     setTheme((prev) => {
       const next = prev === "dark" ? "light" : "dark";
-      localStorage.setItem("portfolio-theme", next);
-      document.documentElement.setAttribute("data-theme", next);
+      try {
+        localStorage.setItem("portfolio-theme", next);
+      } catch {}
+      root.setAttribute("data-theme", next);
+
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) {
+        meta.setAttribute("content", next === "dark" ? "#0a0a0a" : "#fafafa");
+      }
       return next;
     });
+
+    window.clearTimeout((toggleTheme as unknown as { _timeout?: number })._timeout);
+    (toggleTheme as unknown as { _timeout?: number })._timeout = window.setTimeout(() => {
+      root.classList.remove("theme-transitioning");
+    }, 450);
   }, []);
 
   if (!mounted) {
     return (
-      <ThemeContext.Provider value={{ theme: "dark", toggleTheme: () => {} }}>
+      <ThemeContext.Provider value={{ theme: "light", toggleTheme: () => {} }}>
         {children}
       </ThemeContext.Provider>
     );

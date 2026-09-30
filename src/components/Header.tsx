@@ -45,11 +45,12 @@ export default function Header() {
           zIndex: 1000,
           padding: isScrolled ? "0.75rem 0" : "1.25rem 0",
           background: isScrolled
-            ? "rgba(var(--bg-primary-rgb, 10, 10, 10), 0.85)"
+            ? "var(--header-bg-scrolled, rgba(var(--bg-primary-rgb, 10, 10, 10), 0.85))"
             : "transparent",
           backdropFilter: isScrolled ? "blur(20px) saturate(180%)" : "none",
           WebkitBackdropFilter: isScrolled ? "blur(20px) saturate(180%)" : "none",
           borderBottom: isScrolled ? "1px solid var(--border)" : "1px solid transparent",
+          boxShadow: isScrolled ? "var(--shadow-sm)" : "none",
           transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
@@ -77,7 +78,7 @@ export default function Header() {
                 borderRadius: "50%",
                 background: "var(--accent)",
                 display: "inline-block",
-                boxShadow: "0 0 12px rgba(57, 255, 20, 0.4)",
+                boxShadow: "0 0 12px var(--accent-glow)",
               }}
             />
             ƁƠԼЄ×͜×
@@ -138,13 +139,13 @@ export default function Header() {
                 borderRadius: "50%",
                 border: "1.5px solid var(--border)",
                 background: "transparent",
-                color: "var(--text-tertiary)",
+                color: "var(--text-secondary)",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 transition: "all var(--transition-fast)",
-                fontSize: "1rem",
+                overflow: "hidden",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "var(--accent)";
@@ -152,10 +153,36 @@ export default function Header() {
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = "var(--border)";
-                e.currentTarget.style.color = "var(--text-tertiary)";
+                e.currentTarget.style.color = "var(--text-secondary)";
               }}
             >
-              {theme === "dark" ? "☀" : "☾"}
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transform: theme === "dark" ? "rotate(0deg)" : "rotate(360deg)",
+                  transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+                }}
+              >
+                {theme === "dark" ? (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                  </svg>
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                )}
+              </span>
             </button>
           </nav>
 
@@ -170,15 +197,41 @@ export default function Header() {
                 borderRadius: "50%",
                 border: "1.5px solid var(--border)",
                 background: "transparent",
-                color: "var(--text-tertiary)",
+                color: "var(--text-secondary)",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "0.875rem",
+                overflow: "hidden",
               }}
             >
-              {theme === "dark" ? "☀" : "☾"}
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transform: theme === "dark" ? "rotate(0deg)" : "rotate(360deg)",
+                  transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+                }}
+              >
+                {theme === "dark" ? (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                  </svg>
+                ) : (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                )}
+              </span>
             </button>
 
             <button

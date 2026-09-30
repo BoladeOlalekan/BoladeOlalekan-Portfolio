@@ -1,16 +1,55 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { projects } from "@/lib/data";
+import { projects, Project } from "@/lib/data";
 import { useScrollAnimation } from "@/lib/hooks";
 
 type FilterCategory = "all" | "web" | "mobile" | "design";
 
+function getRandomSample<T>(arr: T[], count: number): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy.slice(0, count);
+}
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+const getDefaultMix = (): Project[] => {
+  const web = projects.filter((p) => p.category === "web").slice(0, 2);
+  const mobile = projects.filter((p) => p.category === "mobile").slice(0, 2);
+  const design = projects.filter((p) => p.category === "design").slice(0, 2);
+  return [web[0], mobile[0], design[0], web[1], mobile[1], design[1]].filter(Boolean);
+};
+
 export default function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>("all");
   const [sectionRef, isVisible] = useScrollAnimation<HTMLElement>(0.1);
+  const [allWorkProjects, setAllWorkProjects] = useState<Project[]>(getDefaultMix);
+
+  useEffect(() => {
+    const webProjects = projects.filter((p) => p.category === "web");
+    const mobileProjects = projects.filter((p) => p.category === "mobile");
+    const designProjects = projects.filter((p) => p.category === "design");
+
+    const selectedWeb = getRandomSample(webProjects, 2);
+    const selectedMobile = getRandomSample(mobileProjects, 2);
+    const selectedDesign = getRandomSample(designProjects, 2);
+
+    const mixed = shuffleArray([...selectedWeb, ...selectedMobile, ...selectedDesign]);
+    setAllWorkProjects(mixed);
+  }, []);
 
   const filters: { label: string; value: FilterCategory }[] = [
     { label: "All Work", value: "all" },
@@ -21,8 +60,8 @@ export default function PortfolioSection() {
 
   const filteredProjects =
     activeFilter === "all"
-      ? projects.slice(0, 4)
-      : projects.filter((p) => p.category === activeFilter).slice(0, 4);
+      ? allWorkProjects
+      : projects.filter((p) => p.category === activeFilter);
 
   return (
     <section
@@ -83,7 +122,7 @@ export default function PortfolioSection() {
                       : "transparent",
                   color:
                     activeFilter === filter.value
-                      ? "#0a0a0a"
+                      ? "var(--bg-primary)"
                       : "var(--text-tertiary)",
                 }}
               >
@@ -146,6 +185,7 @@ export default function PortfolioSection() {
 
                 {/* Category Badge */}
                 <div
+                  className="project-category-badge"
                   style={{
                     position: "absolute",
                     top: "0.75rem",
@@ -156,7 +196,7 @@ export default function PortfolioSection() {
                     textTransform: "uppercase",
                     letterSpacing: "0.08em",
                     background: "rgba(10, 10, 10, 0.8)",
-                    color: "var(--accent)",
+                    color: "var(--project-badge-text)",
                     borderRadius: "100px",
                     backdropFilter: "blur(10px)",
                   }}

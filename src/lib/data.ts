@@ -55,166 +55,294 @@ export const navLinks = [
 ];
 
 // ===== Skills Data =====
+export const webSkills: Skill[] = [
+  { name: "React", icon: "react" },
+  { name: "Next.js", icon: "nextjs" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "Tailwind CSS", icon: "tailwind" },
+  { name: "JavaScript", icon: "javascript" },
+  { name: "HTML5 & CSS3", icon: "html" },
+  { name: "Node.js", icon: "nodejs" },
+  { name: "REST APIs", icon: "api" },
+  { name: "NoSQL", icon: "nosql" },
+];
+
+export const mobileSkills: Skill[] = [
+  { name: "Flutter", icon: "flutter" },
+  { name: "Dart", icon: "dart" },
+  { name: "Riverpod", icon: "riverpod" },
+  { name: "React Native", icon: "react-native" },
+  { name: "Cordova", icon: "cordova" },
+  { name: "Firebase", icon: "firebase" },
+  { name: "Supabase", icon: "supabase" },
+  { name: "NoSQL", icon: "nosql" },
+  { name: "Mobile UI/UX", icon: "uiux" },
+  { name: "REST APIs", icon: "api" },
+];
+
+export const designSkills: Skill[] = [
+  { name: "Figma", icon: "figma" },
+  { name: "Adobe Photoshop", icon: "photoshop" },
+  { name: "Adobe Illustrator", icon: "illustrator" },
+  { name: "Affinity", icon: "affinity" },
+  { name: "Lightroom", icon: "lightroom" },
+  { name: "Brand Identity", icon: "branding" },
+  { name: "Canva", icon: "canva" },
+  { name: "Poster & Flyer Design", icon: "branding" },
+];
+
 export const skillCategories: SkillCategory[] = [
   {
     title: "Web Development",
     description:
       "Building fast, responsive, and scalable web applications with modern frameworks and best practices.",
-    skills: [
-      { name: "HTML5", icon: "html" },
-      { name: "CSS3", icon: "css" },
-      { name: "JavaScript", icon: "javascript" },
-      { name: "TypeScript", icon: "typescript" },
-      { name: "React", icon: "react" },
-      { name: "Next.js", icon: "nextjs" },
-      { name: "Node.js", icon: "nodejs" },
-      { name: "Tailwind CSS", icon: "tailwind" },
-    ],
+    skills: webSkills,
   },
   {
     title: "Mobile Development",
     description:
       "Crafting native-like mobile experiences across iOS and Android with cross-platform frameworks.",
-    skills: [
-      { name: "Flutter", icon: "flutter" },
-      { name: "React Native", icon: "react-native" },
-      { name: "Cordova", icon: "cordova" },
-      { name: "Dart", icon: "dart" },
-      { name: "Firebase", icon: "firebase" },
-      { name: "Supabase", icon: "supabase" },
-      { name: "REST APIs", icon: "api" },
-    ],
+    skills: mobileSkills,
   },
   {
     title: "Graphic Design",
     description:
       "Creating compelling visual identities, illustrations, and brand systems that communicate with clarity.",
-    skills: [
-      { name: "Figma", icon: "figma" },
-      { name: "Photoshop", icon: "photoshop" },
-      { name: "Illustrator", icon: "illustrator" },
-      { name: "Canva", icon: "canva" },
-      { name: "Branding", icon: "branding" },
-      { name: "UI/UX Design", icon: "uiux" },
-    ],
+    skills: designSkills,
   },
 ];
 
 // ===== Projects Data =====
 export const projects: Project[] = [
   {
-    slug: "luxe-ecommerce",
-    title: "Luxe E-Commerce Platform",
-    role: "Full-Stack Web Developer",
-    category: "web",
+    slug: "peernet-platform",
+    title: "PeerNet Student Resource & Networking Hub",
+    role: "Lead Full-Stack & Mobile Developer",
+    category: "mobile",
     shortDescription:
-      "A premium online fashion store with real-time inventory, seamless checkout, and personalized recommendations.",
+      "A comprehensive student networking platform facilitating academic collaboration, event updates, resource sharing, and AI assistance within university communities.",
     fullDescription:
-      "Luxe is a high-end e-commerce platform built for a luxury fashion retailer. The project required a visually stunning storefront with enterprise-grade performance, capable of handling thousands of concurrent users during flash sales.",
-    thumbnail: "/images/projects/ecommerce.png",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "PostgreSQL", "Prisma"],
+      "PeerNet is an all-in-one academic collaboration platform designed for students and educators. It combines real-time resource sharing, campus event management, student interest groups, and an integrated AI assistant to streamline university life.",
+    thumbnail: "/images/projects/peernet.png",
+    techStack: ["Flutter", "Dart", "JavaScript", "Tailwind CSS", "Firebase", "REST APIs"],
     problem:
-      "The client's existing WordPress-based store couldn't handle traffic spikes, had slow page loads, and lacked mobile responsiveness. Conversion rates were declining and the user experience felt outdated.",
+      "Students struggled to find reliable study groups, stay updated on university events, and access past course resources across fragmented channels.",
     process:
-      "I began with a thorough UX audit and competitive analysis. Wireframes were designed in Figma, followed by a component-driven development approach using Next.js App Router. Performance budgets were set from day one.",
+      "Engineered a cross-platform mobile & admin portal architecture. Designed clean intuitive dashboards with real-time sync, event signup analytics, and custom AI chat capabilities.",
     solution:
-      "Built a fully server-rendered Next.js application with optimistic UI updates, edge-cached product pages, and a headless CMS for content management. Stripe integration handles payments with PCI compliance.",
+      "Built PeerNet with Flutter for cross-platform mobile access and a responsive admin portal for university management. Integrated cloud backend and AI assistant for instant student inquiry answers.",
     results:
-      "Page load times dropped from 4.2s to 1.1s. Mobile conversion rate increased by 35%. The platform successfully handled 10x traffic during launch day with zero downtime.",
-    liveUrl: "https://luxe-demo.vercel.app",
-    githubUrl: "https://github.com/username/luxe-ecommerce",
-    images: ["/images/projects/ecommerce.png"],
+      "Streamlined student event signups, enabled instant peer-to-peer resource sharing, and achieved high engagement during campus hackathons.",
+    liveUrl: "https://peernetadmin.netlify.app/",
+    githubUrl: "https://github.com/BoladeOlalekan/PeerNet",
+    images: ["/images/projects/peernet.png"],
   },
   {
-    slug: "fitpulse-mobile",
-    title: "FitPulse Fitness Tracker",
+    slug: "chef-bolex",
+    title: "Chef Bolex - AI Recipe Generator",
+    role: "Frontend Developer",
+    category: "web",
+    shortDescription:
+      "An intelligent culinary assistant that generates gourmet recipes with step-by-step cooking guides and nutritional facts based on your available ingredients.",
+    fullDescription:
+      "Chef Bolex transforms random pantry items into delicious meals using artificial intelligence. Users can specify available ingredients, dietary preferences, and meal types to receive personalized gourmet recipes instantly.",
+    thumbnail: "/images/projects/chef-bolex.png",
+    techStack: ["React", "JavaScript", "Tailwind CSS", "AI API", "Netlify"],
+    problem:
+      "Pantry item waste and meal planning fatigue are common daily challenges. Existing recipe sites are cluttered with ads and hard to search by exact available ingredients.",
+    process:
+      "Created an interactive ingredient tag input component, real-time diet customizers, and integrated AI endpoint streaming to deliver instant recipe steps and nutritional breakdown cards.",
+    solution:
+      "Developed a high-performance React web application with responsive dark mode UI, optimistic state handling, and sleek recipe output cards.",
+    results:
+      "Empowered users to reduce food waste with instant recipe generation in under 2 seconds.",
+    liveUrl: "https://chef-bolex.netlify.app/",
+    githubUrl: "https://github.com/BoladeOlalekan/CHEF-CLAUDE",
+    images: ["/images/projects/chef-bolex.png"],
+  },
+  {
+    slug: "meme-generator",
+    title: "Interactive Meme Generator",
+    role: "Frontend Developer",
+    category: "web",
+    shortDescription:
+      "A fun, dynamic meme creation studio featuring popular template integration, real-time canvas text editing, font styling, and instant image download.",
+    fullDescription:
+      "Meme Generator is a lightweight, responsive web application for creating and customizing viral internet memes. It connects to live template APIs and provides intuitive text styling, position controls, and instant export.",
+    thumbnail: "/images/projects/meme-generator.png",
+    techStack: ["React", "JavaScript", "HTML5 Canvas", "CSS3", "Imgflip API"],
+    problem:
+      "Many meme creation sites are bloated with aggressive popups, heavy watermarks, and slow rendering on mobile devices.",
+    process:
+      "Built a component-driven React app leveraging canvas rendering for real-time text overlay, custom font pickers, and clean layout controls.",
+    solution:
+      "Delivered a watermark-free, instant-load meme editor with live preview capabilities and quick social media export options.",
+    results:
+      "Achieved fast 60fps canvas text manipulation and instant 1-click image download for users.",
+    liveUrl: "https://scr-meme-generator.netlify.app/",
+    githubUrl: "https://github.com/BoladeOlalekan/MEME-GENERATOR",
+    images: ["/images/projects/meme-generator.png"],
+  },
+  {
+    slug: "flutter-ticket-app",
+    title: "Flutter Flight & Event Ticket App",
     role: "Mobile App Developer",
     category: "mobile",
     shortDescription:
-      "A cross-platform fitness tracking app with workout plans, progress analytics, and social features.",
+      "A cross-platform mobile application for seamless flight booking, seat selection, digital boarding passes with QR codes, and event schedules.",
     fullDescription:
-      "FitPulse is a comprehensive fitness tracking application built with Flutter, designed to help users track workouts, monitor progress, and stay motivated through social accountability features.",
-    thumbnail: "/images/projects/fitness-app.png",
-    techStack: ["Flutter", "Dart", "Firebase", "Cloud Functions", "Figma"],
+      "Flutter Ticket App is a modern mobile experience for travelers and event attendees. Features include interactive flight search, real-time seat selector, digital boarding passes with dynamic QR validation, and schedule tracking.",
+    thumbnail: "/images/projects/ticket-app.png",
+    techStack: ["Flutter", "Dart", "Mobile UI/UX", "REST APIs", "Figma"],
     problem:
-      "Existing fitness apps were either too complex for beginners or too simple for intermediate users. There was a gap in the market for an app that could scale with the user's fitness journey.",
+      "Traditional booking apps are often clunky, require complex navigation, and lack clean digital pass management for offline access.",
     process:
-      "User research with 50+ fitness enthusiasts informed the feature prioritization. I designed the UI in Figma with accessibility in mind, then built the app using Flutter's widget system with BLoC state management.",
+      "Designed pixel-perfect mobile screens in Figma and implemented stateful Flutter widgets for smooth tab navigation, seat matrix selection, and dynamic barcode generation.",
     solution:
-      "A cross-platform app with adaptive workout plans, real-time progress charts, social workout sharing, and integration with wearable devices via Bluetooth LE. Firebase handles auth, storage, and real-time sync.",
+      "Built a native-performing Flutter app compatible with both iOS and Android, offering offline boarding pass viewing and fast ticket booking flows.",
     results:
-      "4.7 star rating on both App Store and Play Store. 15,000+ downloads in the first month. Daily active user retention at 42%, well above the industry average of 25%.",
-    liveUrl: "https://fitpulse.app",
-    githubUrl: "https://github.com/username/fitpulse",
-    images: ["/images/projects/fitness-app.png"],
+      "Created an intuitive 3-step booking experience with zero lag during seat map interactions.",
+    liveUrl: "",
+    githubUrl: "https://github.com/BoladeOlalekan/flutter-ticket_app",
+    images: ["/images/projects/ticket-app.png"],
   },
   {
-    slug: "nexus-brand-identity",
-    title: "Nexus Brand Identity",
+    slug: "age-calculator-app",
+    title: "Interactive Age Calculator",
+    role: "Frontend Developer",
+    category: "web",
+    shortDescription:
+      "A sleek date calculation tool that computes exact age in years, months, and days with interactive form validation and fluid text counter animations.",
+    fullDescription:
+      "An accurate, micro-animated age calculation web app built as part of the Frontend Mentor challenge. Features robust edge-case validation for leap years and month lengths, coupled with smooth counter number animations.",
+    thumbnail: "/images/projects/age-calc.png",
+    techStack: ["JavaScript", "HTML5", "CSS3", "Form Validation", "Netlify"],
+    problem:
+      "Handling date math accurately across irregular month lengths and leap years while maintaining responsive design and accessible form validation.",
+    process:
+      "Implemented strict JS date object validation for past/future dates, invalid month days (e.g. Feb 31st), and keyframe number tick animations.",
+    solution:
+      "Built a clean, responsive UI with real-time error messages and smooth number ticker effects upon successful calculation.",
+    results:
+      "Passed all accessibility and responsive test benchmarks with 100% precision on date algorithms.",
+    liveUrl: "https://fem-agecalc.netlify.app/",
+    githubUrl: "https://github.com/BoladeOlalekan",
+    images: ["/images/projects/age-calc.png"],
+  },
+  {
+    slug: "welcome-back-to-school-flyer",
+    title: "Welcome Back To School Flyer",
     role: "Graphic Designer",
     category: "design",
     shortDescription:
-      "A complete brand identity system for a tech startup, including logo, color system, typography, and brand guidelines.",
+      "A vibrant welcome-back promotional flyer designed for NAESS FUTA Chapter, featuring bold typography and dynamic student imagery.",
     fullDescription:
-      "Nexus is a B2B SaaS startup that needed a complete visual identity that communicated innovation, trust, and technical sophistication to enterprise clients.",
-    thumbnail: "/images/projects/brand-identity.png",
-    techStack: ["Illustrator", "Photoshop", "Figma", "After Effects"],
+      "Designed an eye-catching welcome-back flyer for the National Association of Edo State Students (NAESS) FUTA Chapter. The design combines bold red-orange gradients with energetic student photography and clear contact information hierarchy.",
+    thumbnail: "/images/projects/design-school-flyer.png",
+    techStack: ["Photoshop", "Illustrator", "Typography", "Print Design"],
     problem:
-      "The startup had no cohesive visual identity. Marketing materials were inconsistent, and the brand failed to differentiate from competitors in the crowded SaaS landscape.",
+      "The student association needed a visually striking flyer to welcome freshers and returning students at the start of a new academic session.",
     process:
-      "I conducted brand workshops with the founding team to define brand values, personality, and positioning. Mood boards and concept explorations led to three distinct directions before final refinement.",
+      "Selected a warm, inviting color palette with red-orange gradients. Composed student imagery with bold typographic hierarchy to create an energetic, welcoming feel.",
     solution:
-      "Delivered a comprehensive brand system including primary and secondary logos, color palette, typography hierarchy, iconography set, business cards, social templates, and a 40-page brand guidelines document.",
+      "Delivered a print-ready flyer with clear visual hierarchy, prominent contact details, and brand-consistent association logos.",
     results:
-      "The rebrand contributed to a 60% increase in qualified leads through improved brand perception. Investor deck response rates improved by 45% after the visual refresh.",
-    liveUrl: "https://behance.net/nexus-brand",
-    images: ["/images/projects/brand-identity.png"],
+      "Successfully distributed across campus, driving engagement and event awareness for the new session.",
+    liveUrl: "https://www.pinterest.com/pin/605171268726294045/",
+    githubUrl: "",
+    images: ["/images/projects/design-school-flyer.png"],
   },
   {
-    slug: "analytics-dashboard",
-    title: "InsightFlow Analytics Dashboard",
-    role: "Full-Stack Web Developer",
-    category: "web",
+    slug: "church-anniversary-flyer",
+    title: "Church Anniversary Celebration Flyer",
+    role: "Graphic Designer",
+    category: "design",
     shortDescription:
-      "A real-time analytics dashboard for SaaS companies to monitor key metrics, user behavior, and revenue trends.",
+      "A premium 40th anniversary celebration flyer for Victory Baptist Church, featuring regal blue and gold aesthetics with dynamic photo composition.",
     fullDescription:
-      "InsightFlow is an enterprise analytics platform that aggregates data from multiple sources into a unified, real-time dashboard with customizable widgets and automated reporting.",
-    thumbnail: "/images/projects/dashboard.png",
-    techStack: ["React", "TypeScript", "D3.js", "Node.js", "MongoDB", "WebSocket"],
+      "Created a celebratory event flyer for Victory Baptist Church's 40th anniversary and fundraising launch. The design blends regal blue tones with gold accents, confetti effects, and layered photography for a festive, dignified look.",
+    thumbnail: "/images/projects/design-pin2.png",
+    techStack: ["Photoshop", "Illustrator", "Event Design", "Print Design"],
     problem:
-      "The client's team was spending 8+ hours per week manually compiling reports from multiple data sources. Decision-making was delayed by outdated information and data silos.",
+      "The church needed a flyer that conveyed both celebration and dignity for a milestone 40th anniversary event and fundraising campaign.",
     process:
-      "I mapped out all data sources and designed a unified data schema. The UI was prototyped in Figma with a focus on information density without overwhelming the user. Real-time updates were implemented via WebSockets.",
+      "Chose a royal blue and gold palette to evoke prestige. Layered congregant photography with light effects and confetti to create a festive atmosphere while maintaining formality.",
     solution:
-      "A modular dashboard with drag-and-drop widgets, real-time data streaming, automated PDF report generation, and role-based access control. Custom D3.js visualizations provide actionable insights.",
+      "Produced a polished event flyer with clear date, time, venue, and dress code information, all wrapped in a celebratory visual framework.",
     results:
-      "Reduced weekly reporting time from 8 hours to 15 minutes. The dashboard processes 2M+ events daily with sub-second latency. Client NPS improved by 20 points.",
-    liveUrl: "https://insightflow-demo.vercel.app",
-    githubUrl: "https://github.com/username/insightflow",
-    images: ["/images/projects/dashboard.png"],
+      "Boosted event attendance and created a memorable visual identity for the church's milestone celebration.",
+    liveUrl: "https://www.pinterest.com/pin/605171268725358620/",
+    githubUrl: "",
+    images: ["/images/projects/design-pin2.png"],
   },
   {
-    slug: "tastebud-delivery",
-    title: "TasteBud Food Delivery App",
-    role: "Mobile App Developer",
-    category: "mobile",
+    slug: "kilode-album-cover-art",
+    title: "Music Cover Art - KILODE by AJAY",
+    role: "Graphic Designer",
+    category: "design",
     shortDescription:
-      "A food delivery mobile app connecting local restaurants with customers through a seamless ordering experience.",
+      "A surreal, atmospheric album cover design for music artist AJAY's single 'KILODE', featuring impossible architecture and moody visual storytelling.",
     fullDescription:
-      "TasteBud is a food delivery platform built with React Native, featuring real-time order tracking, restaurant management tools, and an intelligent recommendation engine.",
-    thumbnail: "/images/projects/food-app.png",
-    techStack: ["React Native", "TypeScript", "Node.js", "PostgreSQL", "Redis", "Mapbox"],
+      "Designed a conceptual album cover for the single 'KILODE' by artist AJAY. The artwork features an Escher-inspired impossible staircase composition with hooded figures in a misty, ethereal landscape, creating a sense of mystery and introspection.",
+    thumbnail: "/images/projects/design-pin3.png",
+    techStack: ["Photoshop", "Photo Manipulation", "Concept Art", "Album Design"],
     problem:
-      "Local restaurants in the area lacked a unified delivery platform. Existing solutions charged excessive commissions, and customers had to switch between multiple apps to compare options.",
+      "The artist needed a visually compelling and unique album cover that would stand out on streaming platforms and convey the song's contemplative mood.",
     process:
-      "I conducted user interviews with both restaurant owners and customers. The app architecture was designed for scalability from the start, with separate modules for customer, restaurant, and driver experiences.",
+      "Explored surrealist visual concepts, settling on an impossible geometry motif. Composited multiple photographic elements with atmospheric fog and muted tones for a dreamlike quality.",
     solution:
-      "A three-sided marketplace with real-time GPS tracking, intelligent order routing, push notifications, in-app chat, and a restaurant analytics dashboard. Payments handled via Stripe Connect.",
+      "Delivered a striking album cover with surreal staircase composition, cohesive color grading, and clean artist/title typography placement.",
     results:
-      "Onboarded 120+ restaurants in the first quarter. Average delivery time of 28 minutes. 4.8 star rating with 92% customer satisfaction rate.",
-    liveUrl: "https://tastebud.app",
-    githubUrl: "https://github.com/username/tastebud",
-    images: ["/images/projects/food-app.png"],
+      "Created a distinctive visual identity for the single that resonated with the artist's creative vision and attracted listener attention.",
+    liveUrl: "https://www.pinterest.com/pin/605171268729369778/",
+    githubUrl: "",
+    images: ["/images/projects/design-pin3.png"],
+  },
+  {
+    slug: "peernet-logo-design",
+    title: "PeerNet Brand Logo Design",
+    role: "Logo & Brand Designer",
+    category: "design",
+    shortDescription:
+      "A modern, clean logo mark for PeerNet - a student networking platform - combining the letter 'P' with a graduation cap and speech bubble motif.",
+    fullDescription:
+      "Designed the brand identity logo for PeerNet, a student collaboration and networking platform. The mark integrates a stylized letter 'P' with a graduation cap and speech bubble, symbolizing academic community and communication.",
+    thumbnail: "/images/projects/design-pin4.png",
+    techStack: ["Illustrator", "Figma", "Logo Design", "Branding"],
+    problem:
+      "PeerNet needed a recognizable, scalable logo that communicated education, community, and digital communication in a single mark.",
+    process:
+      "Explored multiple lettermark and icon concepts. Iterated on combining the 'P' letterform with academic (graduation cap) and social (speech bubble) visual elements until achieving a balanced, memorable composition.",
+    solution:
+      "Delivered a clean vector logo on a deep blue background with teal-green accent, optimized for both digital screens and print applications.",
+    results:
+      "Established a strong, instantly recognizable brand identity used across the PeerNet mobile app and admin dashboard.",
+    liveUrl: "https://www.pinterest.com/pin/605171268731518781/",
+    githubUrl: "",
+    images: ["/images/projects/design-pin4.png"],
+  },
+  {
+    slug: "cultural-day-flyer",
+    title: "Cultural Day Anticipation Flyer",
+    role: "Graphic Designer",
+    category: "design",
+    shortDescription:
+      "A vibrant cultural celebration flyer for NAESS FUTA featuring traditional African patterns, rich kente cloth textures, and dynamic cultural photography.",
+    fullDescription:
+      "Created a high-impact promotional flyer for the NAESS FUTA Cultural Day event. The design celebrates African heritage through kente cloth border patterns, traditional attire photography, and warm earth-tone color palettes.",
+    thumbnail: "/images/projects/design-pin5.png",
+    techStack: ["Photoshop", "Illustrator", "Cultural Design", "Event Design"],
+    problem:
+      "The student association needed a flyer that authentically represented diverse African cultural heritage while building anticipation for the cultural day event.",
+    process:
+      "Researched kente cloth patterns and traditional color symbolism. Composed culturally representative photography with layered text effects and authentic textile border elements.",
+    solution:
+      "Produced a culturally rich event flyer with bold 'CULTURAL DAY' typography, scrolling 'ANTICIPATE' text ribbon, and clear contact/sponsorship details.",
+    results:
+      "Generated strong campus-wide anticipation and cultural pride, contributing to a well-attended cultural celebration event.",
+    liveUrl: "https://www.pinterest.com/pin/605171268727121843/",
+    githubUrl: "",
+    images: ["/images/projects/design-pin5.png"],
   },
 ];
 
@@ -231,7 +359,7 @@ export const services: Service[] = [
       "Performance optimization & SEO",
       "Deployment & hosting setup",
     ],
-    tools: ["Next.js", "React", "TypeScript", "Node.js", "Tailwind CSS", "PostgreSQL"],
+    tools: webSkills.map((s) => s.name),
     icon: "web",
   },
   {
@@ -245,7 +373,7 @@ export const services: Service[] = [
       "App Store & Play Store submission",
       "Post-launch support & maintenance",
     ],
-    tools: ["Flutter", "React Native", "Firebase", "Dart", "REST APIs", "Supabase"],
+    tools: mobileSkills.map((s) => s.name),
     icon: "mobile",
   },
   {
@@ -259,7 +387,7 @@ export const services: Service[] = [
       "UI/UX design for digital products",
       "Print-ready collateral design",
     ],
-    tools: ["Figma", "Adobe Illustrator", "Photoshop", "After Effects", "InDesign"],
+    tools: designSkills.map((s) => s.name),
     icon: "design",
   },
 ];
@@ -279,7 +407,7 @@ export const testimonials: Testimonial[] = [
     role: "Product Manager",
     company: "FitLife Solutions",
     content:
-      "The mobile app delivered was exactly what we envisioned — intuitive, performant, and beautifully designed. The development process was transparent, and every milestone was hit on time. A true professional.",
+      "The mobile app delivered was exactly what we envisioned - intuitive, performant, and beautifully designed. The development process was transparent, and every milestone was hit on time. A true professional.",
     avatar: "JO",
   },
   {
@@ -294,8 +422,9 @@ export const testimonials: Testimonial[] = [
 
 // ===== Social Links =====
 export const socialLinks = [
-  { name: "GitHub", url: "https://github.com", icon: "github" },
-  { name: "LinkedIn", url: "https://linkedin.com", icon: "linkedin" },
-  { name: "Dribbble", url: "https://dribbble.com", icon: "dribbble" },
-  { name: "Behance", url: "https://behance.net", icon: "behance" },
+  { name: "GitHub", url: "https://github.com/BoladeOlalekan", icon: "github" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/olalekan-bolade-a7921a243", icon: "linkedin" },
+  { name: "Dribbble", url: "https://dribbble.com/Bolexis", icon: "dribbble" },
+  { name: "Pinterest", url: "https://www.pinterest.com/bolexi_01/", icon: "pinterest" },
 ];
+
