@@ -245,7 +245,8 @@ export default function PortfolioSection() {
                         fontWeight: 500,
                         borderRadius: "var(--radius-sm)",
                         background: "var(--bg-tertiary)",
-                        color: "var(--text-tertiary)",
+                        border: "1px solid var(--border)",
+                        color: "var(--text-secondary)",
                         fontFamily: "var(--font-mono)",
                       }}
                     >
@@ -260,7 +261,8 @@ export default function PortfolioSection() {
                         fontWeight: 500,
                         borderRadius: "var(--radius-sm)",
                         background: "var(--bg-tertiary)",
-                        color: "var(--text-muted)",
+                        border: "1px solid var(--border)",
+                        color: "var(--text-secondary)",
                       }}
                     >
                       +{project.techStack.length - 4}

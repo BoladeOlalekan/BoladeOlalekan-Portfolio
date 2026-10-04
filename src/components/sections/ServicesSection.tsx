@@ -176,7 +176,8 @@ export default function ServicesSection() {
                       fontWeight: 500,
                       borderRadius: "var(--radius-sm)",
                       background: "var(--bg-tertiary)",
-                      color: "var(--text-muted)",
+                      border: "1px solid var(--border)",
+                      color: "var(--text-secondary)",
                       fontFamily: "var(--font-mono)",
                     }}
                   >

@@ -239,9 +239,9 @@ export default function ServicesPageContent() {
                           fontWeight: 500,
                           borderRadius: "var(--radius-sm)",
                           background: "var(--bg-tertiary)",
-                          color: "var(--text-tertiary)",
+                          color: "var(--text-secondary)",
                           fontFamily: "var(--font-mono)",
-                          border: "1px solid transparent",
+                          border: "1px solid var(--border)",
                           transition: "all var(--transition-fast)",
                           cursor: "default",
                         }}
@@ -250,8 +250,8 @@ export default function ServicesPageContent() {
                           e.currentTarget.style.color = "var(--accent)";
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = "transparent";
-                          e.currentTarget.style.color = "var(--text-tertiary)";
+                          e.currentTarget.style.borderColor = "var(--border)";
+                          e.currentTarget.style.color = "var(--text-secondary)";
                         }}
                       >
                         {tool}
@@ -314,7 +314,7 @@ export default function ServicesPageContent() {
                     color: "var(--accent)",
                     opacity: 0.15,
                     lineHeight: 1,
-                    marginBottom: "-0.5rem",
+                    marginBottom: "1rem",
                     letterSpacing: "-0.05em",
                   }}
                 >
