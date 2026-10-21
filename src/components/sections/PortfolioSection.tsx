@@ -65,7 +65,7 @@ export default function PortfolioSection() {
 
   return (
     <section
-      id="portfolio"
+      id="projects"
       ref={sectionRef}
       className="section-padding"
       style={{ position: "relative" }}
@@ -87,7 +87,7 @@ export default function PortfolioSection() {
         >
           <div>
             <span className="label" style={{ marginBottom: "0.75rem", display: "block" }}>
-              Portfolio
+              Projects
             </span>
             <h2 className="heading-lg">Selected Work</h2>
           </div>

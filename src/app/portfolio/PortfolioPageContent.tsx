@@ -58,7 +58,7 @@ export default function PortfolioPageContent() {
             }}
           >
             <span className="label" style={{ marginBottom: "0.75rem", display: "block" }}>
-              Portfolio
+              Projects
             </span>
             <h1 className="heading-xl" style={{ marginBottom: "1rem" }}>
               Selected <span style={{ color: "var(--accent)" }}>Work</span>

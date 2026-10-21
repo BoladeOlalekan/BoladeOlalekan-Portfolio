@@ -100,7 +100,7 @@ export default function AboutSection() {
                   </svg>
                 </Link>
                 <a
-                  href="/Bolade-Olalekan-CV.pdf"
+                  href="https://drive.google.com/uc?export=download&id=1Gm9xRMzh-Ybv6mdQMlvPxYdbpFFK93bu"
                   className="btn btn-primary"
                   id="about-section-download-cv"
                   download="Bolade Olalekan CV.pdf"

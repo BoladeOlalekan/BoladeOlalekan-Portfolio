@@ -56,7 +56,7 @@ export default function CaseStudyContent({ project }: { project: Project }) {
                 e.currentTarget.style.color = "var(--text-muted)";
               }}
             >
-              Portfolio
+              Projects
             </Link>
             <span style={{ color: "var(--text-muted)", fontSize: "0.75rem" }}>/</span>
             <span style={{ fontSize: "0.8125rem", color: "var(--text-tertiary)" }}>

@@ -184,7 +184,7 @@ export default function AboutPageContent() {
               {/* CV Download & Actions */}
               <div style={{ marginTop: "2rem", display: "flex", flexWrap: "wrap", gap: "1rem", alignItems: "center" }}>
                 <a
-                  href="/Bolade-Olalekan-CV.pdf"
+                  href="https://drive.google.com/uc?export=download&id=1Gm9xRMzh-Ybv6mdQMlvPxYdbpFFK93bu"
                   className="btn btn-primary"
                   id="download-cv"
                   download="Bolade Olalekan CV.pdf"
